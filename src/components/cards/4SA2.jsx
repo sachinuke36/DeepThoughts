@@ -27,7 +27,7 @@ const FourSA = () => {
           {card.map((i, k) => (
             <div key={k} className="flex flex-col gap-4">
               <div onClick={()=>handleExpand(k)} className="w-[434px] cursor-pointer h-[43px] flex items-center pl-8 gap-5 bg-[#f2f2f2]">
-                <FaAngleUp />
+                <FaAngleUp  className={`${expanded[k] && ' rotate-180'}`} />
                 <div className="w-[193px]  text-black text-base font-semibold font-['Open Sans'] tracking-tight">
                   {i.title}{" "}
                 </div>

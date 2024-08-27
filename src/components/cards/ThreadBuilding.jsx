@@ -14,7 +14,7 @@ const ThreadBuilding = () => {
   return (
     <div  className='flex flex-col gap-5'>
          <div onClick={()=>setExpanded(prev=>!prev)} className="w-[478px] flex gap-5 items-center px-[10px] h-10 bg-[#fdffc0]/20 border border-black/40" >
-             <FaAngleUp />
+             <FaAngleUp className={`${expanded && ' rotate-180'}`} />
             <div className="w-[95.62px] text-black text-xl font-bold font-['Open Sans']">Thread A</div>
       </div>
 
