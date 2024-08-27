@@ -6,7 +6,8 @@ import SYP2 from '../cards/SYP2'
 import FourSA from '../cards/4SA2'
 
 const MainContent = () => {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const API = "https://deepthoughts-3eik.onrender.com/api/deepthought"
   useEffect(() => {
     fetch(API)
@@ -20,11 +21,13 @@ const MainContent = () => {
       .then((data) => {
         console.log(data.tasks[0].assets);
         setData(data);
+        setLoading(false);
       })
       .catch((err) => {
         console.error('There was a problem with the fetch operation:', err);
       });
   }, []);
+
 
   return (
     <div className='w-[1066px] ml-[187px] flex flex-col gap-4  mt-2 '>
@@ -38,7 +41,11 @@ const MainContent = () => {
               <div className="w-[1012px] h-[45px] text-black text-sm font-normal font-['Poppins']  tracking-tight">As a project manager, you play an important reole in leading a project through initiation, planning, execution, monitoring, controlling and completion. How? Do you want to manage each and every step of your life?</div>
             </div>
         </div>
-        <div className='flex flex-wrap w-[1066px] mt-[30px] gap-5 justify-between'>
+        {
+          loading ? ( <div className="w-full flex justify-center items-center">
+          <div className="loader "/>
+        </div>):(
+            <div className='flex flex-wrap w-[1066px] mt-[30px] gap-5 justify-between'>
               {
                 data && data.tasks[0].assets.map((i,k)=>{
                   if(i.asset_id === 18883){
@@ -53,6 +60,8 @@ const MainContent = () => {
                 })
               }
             </div>
+          )
+        }
     </div>
   )
 }
