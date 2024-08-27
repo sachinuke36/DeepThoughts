@@ -7,7 +7,7 @@ import FourSA from '../cards/4SA2'
 
 const MainContent = () => {
   const [data, setData] = useState(null)
-  const API = "http://localhost:3000/api/deepthought"
+  const API = "https://deepthoughts-3eik.onrender.com/api/deepthought"
   useEffect(() => {
     fetch(API)
       .then((response) => {

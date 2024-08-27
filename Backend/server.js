@@ -10,5 +10,5 @@ app.get('/api/deepthought',(req,res)=>{
 })
 
 app.listen(PORT,()=>{
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on https://deepthoughts-3eik.onrender.com/api/deepthought`);
 })
